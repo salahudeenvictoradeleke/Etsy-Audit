@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Etsy Listing Audit | SEO + Conversion Review</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #000000;
+      --muted: #555555;
+      --line: #000000;
+      --soft: #f5f5f5;
+      --max: 1120px;
+      --radius: 18px;
+      --shadow: 0 0 0 2px #000000;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(100% - 32px, var(--max));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 72px 0;
+      border-top: 2px solid var(--line);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      border: 2px solid var(--line);
+      padding: 8px 12px;
+      margin-bottom: 20px;
+      background: #fff;
+    }
+
+    .headline {
+      font-size: clamp(2rem, 5vw, 4.5rem);
+      line-height: 1.05;
+      font-weight: 900;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .subheadline {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 760px;
+      margin-bottom: 32px;
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 22px;
+      border: 2px solid var(--line);
+      background: #000;
+      color: #fff;
+      font-weight: 700;
+      transition: 0.2s ease;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #fff;
+      color: #000;
+    }
+
+    .btn.secondary {
+      background: #fff;
+      color: #000;
+    }
+
+    .btn.secondary:hover {
+      background: #000;
+      color: #fff;
+    }
+
+    .hero {
+      padding: 32px 0 72px;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      border-top: none;
+    }
+
+    .nav {
+      border-bottom: 2px solid var(--line);
+      padding: 18px 0;
+      position: sticky;
+      top: 0;
+      background: #fff;
+      z-index: 50;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      font-size: 1rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    .hero-grid,
+    .grid-2,
+    .grid-3 {
+      display: grid;
+      gap: 24px;
+    }
+
+    .hero-grid {
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: stretch;
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card,
+    .panel {
+      border: 2px solid var(--line);
+      padding: 24px;
+      border-radius: var(--radius);
+      background: #fff;
+    }
+
+    .panel.soft {
+      background: var(--soft);
+    }
+
+    .stat {
+      font-size: 2.5rem;
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .label {
+      font-size: 0.9rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 700;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 3vw, 3rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .section-text {
+      max-width: 760px;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    .card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .card p,
+    .panel p,
+    .list li {
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .list {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .list li {
+      border-top: 1px solid #ccc;
+      padding-top: 12px;
+    }
+
+    .price-wrap {
+      display: grid;
+      gap: 18px;
+    }
+
+    .price-box {
+      border: 3px solid var(--line);
+      padding: 28px;
+      border-radius: var(--radius);
+      background: #fff;
+    }
+
+    .price-old {
+      font-size: 1rem;
+      text-decoration: line-through;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .price-now {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .date-box {
+      border: 2px dashed var(--line);
+      padding: 18px;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.95rem;
+      background: var(--soft);
+    }
+
+    .quote {
+      font-size: clamp(1.5rem, 3vw, 2.4rem);
+      line-height: 1.25;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .steps {
+      counter-reset: step;
+      display: grid;
+      gap: 18px;
+    }
+
+    .step {
+      border: 2px solid var(--line);
+      border-radius: var(--radius);
+      padding: 22px;
+      background: #fff;
+      position: relative;
+      padding-left: 78px;
+    }
+
+    .step::before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute;
+      left: 20px;
+      top: 22px;
+      width: 40px;
+      height: 40px;
+      border: 2px solid var(--line);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      background: #000;
+      color: #fff;
+    }
+
+    .cta-band {
+      background: #000;
+      color: #fff;
+      padding: 56px 24px;
+      border-radius: var(--radius);
+      border: 2px solid #000;
+    }
+
+    .cta-band .section-title,
+    .cta-band .section-text,
+    .cta-band p,
+    .cta-band .label {
+      color: #fff;
+    }
+
+    .order-grid {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 24px;
+      margin-top: 28px;
+      align-items: start;
+    }
+
+    .order-form,
+    .order-summary {
+      border: 2px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+      background: #fff;
+      color: #000;
+    }
+
+    .order-form h3,
+    .order-summary h3 {
+      font-size: 1.05rem;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .form-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .field {
+      display: grid;
+      gap: 8px;
+    }
+
+    .field label {
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #000;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      border: 2px solid var(--line);
+      border-radius: 12px;
+      padding: 14px 14px;
+      font: inherit;
+      background: #fff;
+      color: #000;
+      outline: none;
+    }
+
+    .field textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .mini-note {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .summary-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 12px 0;
+      border-top: 1px solid #ccc;
+      font-size: 0.98rem;
+    }
+
+    .summary-line:first-of-type {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .summary-total {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding-top: 16px;
+      margin-top: 16px;
+      border-top: 2px solid #000;
+      font-size: 1.2rem;
+      font-weight: 900;
+    }
+
+    .summary-old-total {
+      font-size: 1rem;
+      text-decoration: line-through;
+      color: #777;
+      line-height: 1.2;
+    }
+
+    .summary-new-total {
+      font-size: 2.1rem;
+      font-weight: 900;
+      line-height: 1.1;
+      margin-top: 4px;
+    }
+
+    .summary-savings {
+      font-weight: 800;
+      font-size: 1.05rem;
+    }
+
+    .summary-note-box {
+      border: 2px dashed #000;
+      border-radius: 14px;
+      padding: 14px;
+      background: var(--soft);
+    }
+
+    .summary-note-title {
+      font-size: 0.85rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    .summary-trust {
+      display: grid;
+      gap: 8px;
+      padding-top: 6px;
+      font-size: 0.94rem;
+      color: var(--muted);
+    }
+
+    .summary-cta-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 6px;
+    }
+
+    .summary-cta-row .btn {
+      width: 100%;
+    }
+
+    .contact-direct {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid #ccc;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .sticky-mobile-cta {
+      display: none;
+    }
+
+    footer {
+      border-top: 2px solid var(--line);
+      padding: 28px 0 48px;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .grid-2,
+      .grid-3,
+      .order-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 24px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .section {
+        padding: 56px 0;
+      }
+
+      .headline {
+        font-size: 2.2rem;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .step {
+        padding-left: 22px;
+        padding-top: 74px;
+      }
+
+      .step::before {
+        left: 20px;
+        top: 18px;
+      }
+
+      .sticky-mobile-cta {
+        display: flex;
+        position: sticky;
+        bottom: 0;
+        z-index: 60;
+        width: 100%;
+        background: #fff;
+        border-top: 2px solid #000;
+        padding: 12px 16px;
+        gap: 12px;
+      }
+
+      .sticky-mobile-cta .btn {
+        margin: 0;
+        min-height: 50px;
+      }
+
+      body {
+        padding-bottom: 82px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="nav">
+    <div class="container nav-inner">
+      <div class="brand">Etsy Listing Audit</div>
+      <nav class="nav-links">
+        <a href="#overview">Overview</a>
+        <a href="#details">What I Audit</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#process">Process</a>
+        <a href="#cta">Book</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">SEO + Human Conversion Optimization</div>
+          <h1 class="headline">
+            I Audit Etsy Product Listings for Search Engine Performance and Human Buying Behavior
+          </h1>
+          <p class="subheadline">
+            I do not give generic listing feedback. I break each Etsy product listing down at a structural level —
+            so it can rank better in Etsy search, communicate value clearly, and convert real buyers more effectively.
+          </p>
+          <p class="subheadline">
+            Every listing is reviewed through a professional lens across visibility, listing architecture, buyer
+            psychology, and revenue optimization gaps.
+          </p>
+
+          <div class="btn-row">
+            <a href="#pricing" class="btn">Get Listing Audit</a>
+            <a href="#details" class="btn secondary">See Full Audit Scope</a>
+          </div>
+        </div>
+
+        <aside class="panel soft">
+          <div class="label">Current Offer</div>
+          <div class="price-now">$5</div>
+          <p style="margin-bottom: 16px;">
+            Per Etsy listing for a limited number of days.
+          </p>
+
+          <div class="date-box" style="margin-bottom: 18px;">
+            Promo Window: March 10 – March 30
+          </div>
+
+          <div class="price-old">Standard Rate: $10 per listing</div>
+
+          <ul class="list">
+            <li>Full listing detail review</li>
+            <li>SEO and keyword structure audit</li>
+            <li>Human-centered conversion evaluation</li>
+            <li>Clear correction points you can implement fast</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="overview" class="section">
+      <div class="container">
+        <div class="eyebrow">Professional Overview</div>
+        <h2 class="section-title">Your Listing Must Work for Both the Algorithm and the Buyer</h2>
+        <p class="section-text">
+          Most Etsy sellers optimize for one side and ignore the other. Some stuff keywords into titles and hurt readability.
+          Others write for humans but miss search visibility. That creates weak discoverability, low click-through,
+          and poor conversion.
+        </p>
+        <p class="section-text">
+          My audit solves that gap by evaluating the full listing as a revenue asset — not just a product upload.
+          I identify where the structure breaks, where search opportunity is being wasted, and where buyer confidence is being lost.
+        </p>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="stat">SEO</div>
+            <div class="label">Visibility Layer</div>
+            <p>Improve search relevance, keyword coverage, category alignment, and ranking potential.</p>
+          </div>
+          <div class="card">
+            <div class="stat">UX</div>
+            <div class="label">Buyer Layer</div>
+            <p>Improve clarity, trust, persuasion flow, and decision-making confidence for human visitors.</p>
+          </div>
+          <div class="card">
+            <div class="stat">ROI</div>
+            <div class="label">Revenue Layer</div>
+            <p>Surface the structural gaps preventing each listing from performing like a real sales asset.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="details" class="section">
+      <div class="container">
+        <div class="eyebrow">Full Listing Details</div>
+        <h2 class="section-title">What I Audit Inside Every Etsy Listing</h2>
+        <p class="section-text">
+          This is not a shallow review. I inspect the listing from search entry point to purchase decision.
+        </p>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3>Search Positioning (Etsy SEO)</h3>
+            <ul class="list">
+              <li>Keyword targeting accuracy</li>
+              <li>Title structure and ranking signals</li>
+              <li>Tag efficiency and redundancy issues</li>
+              <li>Category alignment and discoverability gaps</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Listing Architecture</h3>
+            <ul class="list">
+              <li>Title readability versus keyword stuffing balance</li>
+              <li>First 160 characters and click-through strength</li>
+              <li>Attribute optimization for filter visibility</li>
+              <li>Listing structure consistency and clarity</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Conversion Layer (Human Buyer Behavior)</h3>
+            <ul class="list">
+              <li>Image sequence flow: hook, proof, trust, decision</li>
+              <li>Description clarity and persuasion logic</li>
+              <li>Value communication versus vague wording</li>
+              <li>Trust signals, urgency, and differentiation</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Revenue Optimization Gaps</h3>
+            <ul class="list">
+              <li>Missed upsell and cross-sell opportunities</li>
+              <li>Pricing perception versus positioning</li>
+              <li>Competitive weakness in presentation</li>
+              <li>Structural issues reducing conversion efficiency</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="panel">
+          <p class="quote">
+            Traffic without conversion is wasted exposure. Conversion without traffic is invisible inventory.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="eyebrow">Why It Matters</div>
+        <h2 class="section-title">A Listing Is Not Just a Product Page — It Is a Revenue System Unit</h2>
+        <p class="section-text">
+          If your Etsy listing is underperforming, the problem is rarely random. It is usually structural.
+          The listing may be hard to find, hard to trust, hard to understand, or hard to act on.
+        </p>
+        <p class="section-text">
+          I identify those structural weak points and turn them into direct, usable correction points —
+          so you can improve visibility, strengthen the message, and increase conversion potential.
+        </p>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>For Sellers With Live Listings</h3>
+            <p>You already have products published, but performance is inconsistent or flat.</p>
+          </div>
+          <div class="card">
+            <h3>For Stores Getting Traffic</h3>
+            <p>You are getting views, but visits are not converting into enough sales.</p>
+          </div>
+          <div class="card">
+            <h3>For Product Businesses</h3>
+            <p>You want listings that behave like assets, not static uploads sitting idle.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing" class="section">
+      <div class="container">
+        <div class="eyebrow">Limited-Time Pricing</div>
+        <h2 class="section-title">Professional Etsy Listing Audit at a Reduced Entry Rate</h2>
+        <p class="section-text">
+          My standard audit rate is <strong>$10 per listing</strong>. For a limited number of days, I am offering
+          the same audit at <strong>$5 per listing</strong>.
+        </p>
+
+        <div class="price-wrap">
+          <div class="price-box">
+            <div class="price-old">$10 / listing</div>
+            <div class="price-now">$5 / listing</div>
+            <p style="margin-bottom: 18px;">
+              Limited promotional pricing available from <strong>March 10</strong> through <strong>March 30</strong>.
+            </p>
+            <div class="date-box">
+              After March 30, pricing returns to the standard $10 per listing rate.
+            </div>
+            <div class="btn-row" style="margin-top: 24px;">
+              <a href="#cta" class="btn">Claim Discounted Audit</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="process" class="section">
+      <div class="container">
+        <div class="eyebrow">Execution Style</div>
+        <h2 class="section-title">What You Can Expect from the Audit Process</h2>
+        <p class="section-text">
+          I focus on useful analysis, not filler. The goal is to show you exactly what is weakening the listing
+          and what should be improved first.
+        </p>
+
+        <div class="steps">
+          <div class="step">
+            <h3>Full Listing Review</h3>
+            <p>I inspect your Etsy listing across SEO, title structure, tags, imagery, description flow, pricing perception, and trust signals.</p>
+          </div>
+
+          <div class="step">
+            <h3>Structural Gap Identification</h3>
+            <p>I isolate where the listing is losing discoverability, clarity, persuasion power, and conversion strength.</p>
+          </div>
+
+          <div class="step">
+            <h3>Direct Fix Recommendations</h3>
+            <p>You receive clear improvement points you can apply immediately instead of generic advice.</p>
+          </div>
+
+          <div class="step">
+            <h3>Revenue-Focused Positioning</h3>
+            <p>The listing is assessed as a conversion asset designed to rank better, communicate better, and sell better.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cta" class="section">
+      <div class="container">
+        <div class="cta-band">
+          <div class="eyebrow" style="background:#000;color:#fff;border-color:#fff;">Book Before March 30</div>
+          <h2 class="section-title">Get Your Etsy Listing Audited for Search Visibility and Buyer Conversion</h2>
+          <p class="section-text">
+            I do not provide vague feedback. I deliver a professional overview of the full listing details,
+            identify the performance gaps, and show you what to improve.
+          </p>
+          <p class="section-text">
+            <strong>Standard:</strong> $10 per listing<br />
+            <strong>Current offer:</strong> $5 per listing<br />
+            <strong>Offer period:</strong> March 10 – March 30
+          </p>
+
+          <div class="order-grid">
+            <div class="order-form">
+              <h3>Order Form</h3>
+              <form id="auditForm" class="form-grid">
+                <div class="field">
+                  <label for="clientName">Your Name</label>
+                  <input type="text" id="clientName" name="clientName" placeholder="Enter your name" />
+                </div>
+
+                <div class="field">
+                  <label for="clientEmail">Your Email</label>
+                  <input type="email" id="clientEmail" name="clientEmail" placeholder="Enter your email" />
+                </div>
+
+                <div class="field">
+                  <label for="listingCount">How Many Listings?</label>
+                  <select id="listingCount" name="listingCount">
+                    <option value="1">1 Listing</option>
+                    <option value="2">2 Listings</option>
+                    <option value="3">3 Listings</option>
+                    <option value="4">4 Listings</option>
+                    <option value="5">5 Listings</option>
+                    <option value="10">10 Listings</option>
+                    <option value="custom">Custom Quantity</option>
+                  </select>
+                </div>
+
+                <div class="field" id="customListingWrap" style="display:none;">
+                  <label for="customListingCount">Custom Number of Listings</label>
+                  <input
+                    type="number"
+                    id="customListingCount"
+                    name="customListingCount"
+                    min="1"
+                    step="1"
+                    placeholder="Enter custom quantity"
+                  />
+                </div>
+
+                <div class="field">
+                  <label for="shopUrl">Etsy Shop URL</label>
+                  <input
+                    type="url"
+                    id="shopUrl"
+                    name="shopUrl"
+                    placeholder="https://www.etsy.com/shop/YourShopName"
+                  />
+                </div>
+
+                <p class="mini-note">
+                  Submit through email or WhatsApp. Your Etsy shop URL and order details will be pre-filled automatically.
+                </p>
+              </form>
+            </div>
+
+            <aside class="order-summary">
+              <h3>Order Summary</h3>
+
+              <div class="summary-line">
+                <span>Price per listing</span>
+                <strong>$5</strong>
+              </div>
+
+              <div class="summary-line">
+                <span>Selected quantity</span>
+                <strong id="summaryQty">1 Listing</strong>
+              </div>
+
+              <div class="summary-line">
+                <span>Promo period</span>
+                <strong>March 10 – March 30</strong>
+              </div>
+
+              <div class="summary-total">
+                <span>Total</span>
+                <div style="text-align:right;">
+                  <div id="summaryOldTotal" class="summary-old-total">$10</div>
+                  <div id="summaryTotal" class="summary-new-total">$5</div>
+                </div>
+              </div>
+
+              <div class="summary-line summary-savings">
+                <span>You Save</span>
+                <span id="summarySavings">$5</span>
+              </div>
+
+              <div class="summary-note-box">
+                <div class="summary-note-title">Limited-Time Offer</div>
+                <div class="mini-note">Promotional pricing ends March 30</div>
+              </div>
+
+              <div class="summary-trust">
+                <span>✔ Full listing detail review</span>
+                <span>✔ SEO + buyer conversion audit</span>
+                <span>✔ Clear action steps included</span>
+              </div>
+
+              <div class="btn-row summary-cta-row">
+                <a id="emailOrderBtn" href="mailto:salahudeenvictoradeleke@gmail.com?subject=Etsy%20Listing%20Audit%20Order" class="btn">
+                  Submit by Email
+                </a>
+                <a id="whatsappOrderBtn" href="https://wa.me/2347057683274" class="btn secondary">
+                  Submit by WhatsApp
+                </a>
+              </div>
+
+              <div class="contact-direct">
+                <p><strong>Direct Email:</strong><br />salahudeenvictoradeleke@gmail.com</p>
+                <p style="margin-top:10px;"><strong>WhatsApp:</strong><br />07057683274</p>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="sticky-mobile-cta">
+    <a href="#cta" class="btn" id="stickyBookBtn">Book 1 Listing • $5</a>
+    <a href="https://wa.me/2347057683274" class="btn secondary" id="stickyWhatsappBtn">WhatsApp</a>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>
+        Etsy Listing Audit Service — Built for sellers who want stronger visibility, better conversion,
+        and more effective product listing performance.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const listingCount = document.getElementById('listingCount');
+      const customListingWrap = document.getElementById('customListingWrap');
+      const customListingCount = document.getElementById('customListingCount');
+
+      const summaryQty = document.getElementById('summaryQty');
+      const summaryTotal = document.getElementById('summaryTotal');
+      const summaryOldTotal = document.getElementById('summaryOldTotal');
+      const summarySavings = document.getElementById('summarySavings');
+
+      const emailOrderBtn = document.getElementById('emailOrderBtn');
+      const whatsappOrderBtn = document.getElementById('whatsappOrderBtn');
+
+      const stickyBookBtn = document.getElementById('stickyBookBtn');
+      const stickyWhatsappBtn = document.getElementById('stickyWhatsappBtn');
+
+      const clientName = document.getElementById('clientName');
+      const clientEmail = document.getElementById('clientEmail');
+      const shopUrl = document.getElementById('shopUrl');
+
+      function getListingQuantity() {
+        if (listingCount.value === 'custom') {
+          const customQty = parseInt(customListingCount.value, 10);
+          return customQty > 0 ? customQty : 1;
+        }
+        return parseInt(listingCount.value, 10) || 1;
+      }
+
+      function toggleCustomInput() {
+        if (listingCount.value === 'custom') {
+          customListingWrap.style.display = 'grid';
+        } else {
+          customListingWrap.style.display = 'none';
+          customListingCount.value = '';
+        }
+      }
+
+      function updateSummary() {
+        toggleCustomInput();
+
+        const qty = getListingQuantity();
+        const originalPrice = 10;
+        const discountedPrice = 5;
+
+        const total = qty * discountedPrice;
+        const oldTotal = qty * originalPrice;
+        const savings = oldTotal - total;
+
+        summaryQty.textContent = qty + (qty === 1 ? ' Listing' : ' Listings');
+        summaryTotal.textContent = '$' + total;
+        summaryOldTotal.textContent = '$' + oldTotal;
+        summarySavings.textContent = '$' + savings;
+
+        stickyBookBtn.textContent = `Book ${qty} ${qty === 1 ? 'Listing' : 'Listings'} • $${total}`;
+
+        const subject = encodeURIComponent('Etsy Listing Audit Order');
+
+        const emailBody = encodeURIComponent(
+`Hello,
+
+I want to book an Etsy Listing Audit.
+
+Name: ${clientName.value || '-'}
+Email: ${clientEmail.value || '-'}
+Number of Listings: ${qty}
+Total Price: $${total}
+Original Price: $${oldTotal}
+You Save: $${savings}
+Promo Rate: $5 per listing
+Offer Period: March 10 – March 30
+
+Etsy Shop URL:
+${shopUrl.value || '-'}
+
+Please let me know the next step.`
+        );
+
+        emailOrderBtn.href = `mailto:salahudeenvictoradeleke@gmail.com?subject=${subject}&body=${emailBody}`;
+
+        const whatsappText = encodeURIComponent(
+`Hello, I want to book an Etsy Listing Audit.
+
+Name: ${clientName.value || '-'}
+Email: ${clientEmail.value || '-'}
+Number of Listings: ${qty}
+Total Price: $${total}
+Original Price: $${oldTotal}
+You Save: $${savings}
+Promo Rate: $5 per listing
+Offer Period: March 10 – March 30
+
+Etsy Shop URL:
+${shopUrl.value || '-'}
+
+Please let me know the next step.`
+        );
+
+        const whatsappHref = `https://wa.me/2347057683274?text=${whatsappText}`;
+        whatsappOrderBtn.href = whatsappHref;
+        stickyWhatsappBtn.href = whatsappHref;
+      }
+
+      [listingCount, customListingCount, clientName, clientEmail, shopUrl].forEach((field) => {
+        field.addEventListener('input', updateSummary);
+        field.addEventListener('change', updateSummary);
+      });
+
+      updateSummary();
+    })();
+  </script>
+</body>
+</html>
