@@ -14,6 +14,8 @@
       --max: 1120px;
       --radius: 18px;
       --shadow: 0 0 0 2px #000000;
+      --accent-orange: #ff6a00;
+      --accent-green: #0f9d58;
     }
 
     * {
@@ -35,8 +37,12 @@
     }
 
     a {
-      color: inherit;
+      color: var(--accent-green);
       text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--accent-orange);
     }
 
     img {
@@ -64,6 +70,7 @@
       padding: 8px 12px;
       margin-bottom: 20px;
       background: #fff;
+      color: var(--text);
     }
 
     .headline {
@@ -94,8 +101,8 @@
       justify-content: center;
       min-height: 52px;
       padding: 0 22px;
-      border: 2px solid var(--line);
-      background: #000;
+      border: 2px solid var(--accent-orange);
+      background: var(--accent-orange);
       color: #fff;
       font-weight: 700;
       transition: 0.2s ease;
@@ -104,17 +111,18 @@
 
     .btn:hover {
       background: #fff;
-      color: #000;
+      color: var(--accent-orange);
     }
 
     .btn.secondary {
-      background: #fff;
-      color: #000;
+      background: var(--accent-green);
+      color: #fff;
+      border: 2px solid var(--accent-green);
     }
 
     .btn.secondary:hover {
-      background: #000;
-      color: #fff;
+      background: #fff;
+      color: var(--accent-green);
     }
 
     .hero {
@@ -146,6 +154,7 @@
       font-weight: 900;
       text-transform: uppercase;
       letter-spacing: 1px;
+      color: var(--text);
     }
 
     .nav-links {
@@ -193,6 +202,7 @@
       font-weight: 900;
       line-height: 1;
       margin-bottom: 10px;
+      color: var(--accent-green);
     }
 
     .label {
@@ -266,6 +276,7 @@
       font-weight: 900;
       line-height: 1;
       margin-bottom: 12px;
+      color: var(--accent-orange);
     }
 
     .date-box {
@@ -307,12 +318,12 @@
       top: 22px;
       width: 40px;
       height: 40px;
-      border: 2px solid var(--line);
+      border: 2px solid var(--accent-green);
       border-radius: 50%;
       display: grid;
       place-items: center;
       font-weight: 900;
-      background: #000;
+      background: var(--accent-green);
       color: #fff;
     }
 
@@ -391,6 +402,13 @@
       resize: vertical;
     }
 
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--accent-green);
+      box-shadow: 0 0 0 2px rgba(15, 157, 88, 0.12);
+    }
+
     .mini-note {
       font-size: 0.9rem;
       color: var(--muted);
@@ -433,11 +451,13 @@
       font-weight: 900;
       line-height: 1.1;
       margin-top: 4px;
+      color: var(--accent-orange);
     }
 
     .summary-savings {
       font-weight: 800;
       font-size: 1.05rem;
+      color: var(--accent-green);
     }
 
     .summary-note-box {
@@ -453,6 +473,7 @@
       text-transform: uppercase;
       margin-bottom: 4px;
       letter-spacing: 0.5px;
+      color: var(--accent-orange);
     }
 
     .summary-trust {
@@ -546,7 +567,7 @@
         z-index: 60;
         width: 100%;
         background: #fff;
-        border-top: 2px solid #000;
+        border-top: 2px solid var(--accent-orange);
         padding: 12px 16px;
         gap: 12px;
       }
